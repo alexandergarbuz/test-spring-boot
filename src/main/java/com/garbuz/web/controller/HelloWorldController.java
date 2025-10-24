@@ -1,5 +1,10 @@
 package com.garbuz.web.controller;
 
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.garbuz.web.dto.HelloDto;
-import com.garbuz.web.model.HelloMessage;
+import com.garbuz.web.model.Message;
 import com.garbuz.web.service.HelloService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,9 +25,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/hello-world")
 @Tag(name = "SpringBoot Test Project", description = "Demo controller")
-public class TestController {
+public class HelloWorldController {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(TestController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
 	
 	@Autowired
 	private HelloService helloService;
@@ -54,7 +59,7 @@ public class TestController {
 		
 		LOG.info("Saying Hello to {} {}", firstName, lastName );
 		
-		final HelloMessage msg = this.helloService.lookUpByFirstAndLastName(firstName, lastName);
+		final Message msg = this.helloService.lookUpByFirstAndLastName(firstName, lastName);
 
 		final HelloDto response = new HelloDto();
 		response.setFirstName(msg.getFirstName());
@@ -64,5 +69,30 @@ public class TestController {
 		LOG.info("Received message {}", msg);
 		
 		return new ResponseEntity<>(response, HttpStatusCode.valueOf(200));
+	}
+	
+	@GetMapping("/hello-with-all-messages")
+	@Operation(summary="Displays personalized hello message as JSON object")
+	public ResponseEntity<List<HelloDto>> displayAllMessages() {
+		
+		LOG.info("Displaying all messages");
+		
+		final List<Message> messages  = this.helloService.findAllMessages();
+		final List<HelloDto> responses = new ArrayList<>();
+		
+		for (Message msg : messages) {
+			LOG.info("Found message: {}", msg);
+			final HelloDto response = new HelloDto();
+			response.setFirstName(msg.getFirstName());
+			response.setLastName(msg.getLastName());
+			response.setMessage("Saying Hello with " + msg.getMessage());
+			responses.add(response);
+						
+		}
+
+
+		LOG.info("Loaded {} messages", responses.size());
+		
+		return new ResponseEntity<>(responses, HttpStatusCode.valueOf(200));
 	}
 }

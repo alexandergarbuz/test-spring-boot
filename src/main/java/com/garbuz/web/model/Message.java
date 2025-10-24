@@ -10,8 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Messages")
-public class HelloMessage {
+@Table(name="Message")
+public class Message {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.AUTO)	
@@ -52,15 +52,15 @@ public class HelloMessage {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!(obj instanceof HelloMessage))
+		if (!(obj instanceof Message))
 			return false;
-		HelloMessage other = (HelloMessage) obj;
+		Message other = (Message) obj;
 		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
 				&& Objects.equals(lastName, other.lastName) && Objects.equals(message, other.message);
 	}
 	@Override
 	public String toString() {
-		return "HelloMessage [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", message=" + message
+		return "Message [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", message=" + message
 				+ "]";
 	}
 
