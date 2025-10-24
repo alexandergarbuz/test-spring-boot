@@ -62,11 +62,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
+			<!-- Make H2 available at runtime so the embedded DB driver is present when running the app -->
 			<scope>runtime</scope>
 		</dependency>
 		<!-- Utilities -->
@@ -79,16 +75,8 @@
 			<artifactId>commons-collections4</artifactId>
 			<version>4.4</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
+		<!-- Removed explicit commons-logging and legacy log4j dependencies to avoid conflicts with Spring Boot's logging (spring-jcl / Logback) -->
+		
 		<!-- Testing utilities -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

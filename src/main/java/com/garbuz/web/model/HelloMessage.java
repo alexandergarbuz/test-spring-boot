@@ -2,11 +2,30 @@ package com.garbuz.web.model;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="Messages")
 public class HelloMessage {
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.AUTO)	
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String message;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -27,7 +46,7 @@ public class HelloMessage {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, lastName, message);
+		return Objects.hash(firstName, id, lastName, message);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -36,11 +55,13 @@ public class HelloMessage {
 		if (!(obj instanceof HelloMessage))
 			return false;
 		HelloMessage other = (HelloMessage) obj;
-		return Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
-				&& Objects.equals(message, other.message);
+		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
+				&& Objects.equals(lastName, other.lastName) && Objects.equals(message, other.message);
 	}
 	@Override
 	public String toString() {
-		return "HelloMessage [firstName=" + firstName + ", lastName=" + lastName + ", message=" + message + "]";
+		return "HelloMessage [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", message=" + message
+				+ "]";
 	}
+
 }
