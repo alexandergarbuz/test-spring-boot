@@ -1,0 +1,95 @@
+/*
+body, h1, h2, h3, td, p, div, span, li, a {
+	font-family: Verdana, Arial, serif;
+}
+
+body, h1, h2, h3, td, p, div, span, li {
+	color: #000;
+}
+*/
+body {
+	padding-top: 70px; /* Adjust based on the height of your navbar */
+}
+
+blockquote {
+	font-weight: normal;
+}
+
+#contactInformationSection ul {
+	list-style-type: none;
+	padding-left: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#contactInformationSection ul li {
+	padding-top: 5px;
+}
+
+#summarySection p{
+	padding-left: 30px;
+}
+
+#skillsSection ul {
+	list-style-type: none;
+}
+
+#educationSection dl, #certificationSection dl {
+	padding-left: 30px;
+	padding-top: 10px;
+}
+
+#educationSection dd, #certificationSection dd {
+	font-style: italic;
+}
+
+#referencesSection ul li {
+	list-style-type: none;
+	padding-bottom: 5px;
+}
+
+#referencesSection span.reference-name {
+	font-weight: bold;
+	color: var(--bs-gray-900);
+}
+#referencesSection span.reference-title {
+	font-style: italic;
+	color: var(--bs-gray-700);
+}
+
+
+#recommendationsSection div.recommendation {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 30px;
+	padding-right: 10px;
+	font-style:italic;
+	font-size: 100%;
+}
+
+#recommendationsSection div.recommendation-avatar-block {
+	display:flex;
+	align-items: center;
+}
+
+#recommendationsSection p.recommendation-autor {
+	padding-left: 10px;
+	padding-top: 10px;
+}
+#recommendationsSection img {
+	border-radius:50%;
+	border:1px solid var(--bs-gray-500);
+	max-width: 60px; /* Limit maximum width to 150 pixels */
+	max-height: 60px; /* Limit maximum height to 150 pixels */
+	width: auto; /* Allow the width to adjust proportionally */
+	height: auto; /* Allow the height to adjust proportionally */
+}
+
+
+#workHistorySection p.job-location {
+	padding-left: 10px;
+	font-style: italic;
+	color: var(--bs-gray-800);
+}
