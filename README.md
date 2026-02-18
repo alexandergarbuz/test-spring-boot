@@ -26,6 +26,10 @@ One of the end points provides a simple example of integraiton with H2 database.
 * `data.sql` - a script that will be executed after database was created to insert the data into the tables.
 * `index.html` - starting page for the application.
 
+## Project Structure
+
+* [Project Structure overview](PROJECT_STRUCTURE.md)
+
 ## Accessing Application
 
 By default the application will be available at [http://localhost](http://localhost)
