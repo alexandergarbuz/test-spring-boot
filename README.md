@@ -6,9 +6,9 @@ It also provides additional functionality like Swagger and Actuator healthcheck.
 
 ## Requirements
 
-* Java 21 or later
-* Maven 3.8.4 or later
-* Spring Boot 3.5.7 or later
+* `Java 21` or later
+* `Maven` `3.8.4` or later
+* `Spring Boot` `4.0.0` or later
 
 
 ## Overview
